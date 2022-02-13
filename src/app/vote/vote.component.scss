@@ -1,0 +1,59 @@
+::ng-deep {
+
+  .p-float-label {
+    margin-top: 2rem;
+
+    input, .p-autocomplete {
+      width: 100%;
+    }
+  }
+
+  .p-orderlist {
+    margin-top: 2rem;
+  }
+
+  .game-item {
+    display: flex;
+    align-items: center;
+    padding: .5rem;
+    width: 100%;
+
+    p-badge {
+      margin-right: 1rem;
+
+      .p-badge {
+        background: #0f2310;
+      }
+
+      .badge-0 {
+        background: #4caf50;
+      }
+
+      .badge-1, .badge-2 {
+        background: #3d8c40;
+      }
+
+      .badge-3 {
+        background: #2e6930;
+      }
+
+      .badge-4 {
+        background: #1e4620;
+      }
+    }
+
+    .image-container {
+      width: 75px;
+      margin-right: 1rem;
+
+      img {
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+        width: 100%;
+      }
+    }
+
+    .game-details {
+      flex: 1 1 0;
+    }
+  }
+}
