@@ -4,4 +4,6 @@ export interface Game {
   yearPublished: string;
   image: string;
   thumbnail: string;
+  votes: number;
+  points: number;
 }

@@ -1,0 +1,25 @@
+<p-toolbar>
+  <div class="p-toolbar-group-left"></div>
+  <div class="p-toolbar-group-right">
+    <p-button icon="pi pi-sign-out" (click)="logout()"></p-button>
+  </div>
+</p-toolbar>
+
+<div class="container">
+  <p-panel header="Ranking gier">
+    <ng-container *ngFor="let game of games$ | async; let i = index">
+      <app-game [game]="game" [badgeValue]="i.toString()" [index]="0" [hasDelete]="false">
+        <div class="results-wrapper">
+          <h3>{{ game.points }}pkt.</h3>
+          <small>{{ game.votes }}&nbsp;głos.</small>
+        </div>
+      </app-game>
+    </ng-container>
+  </p-panel>
+
+  <p-panel header="Ilość głosów" styleClass="votes-panel">
+    <i class="pi pi-users"></i>
+    <span class="amount">{{ votesAmount$ | async }}</span>
+    <span class="text">Ilość głosów</span>
+  </p-panel>
+</div>

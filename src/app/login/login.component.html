@@ -1,0 +1,21 @@
+<p-card>
+  <form novalidate [formGroup]="loginForm" (ngSubmit)="login()">
+    <div class="p-inputgroup">
+      <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+      <div class="p-float-label">
+        <input type="email" id="email" pInputText formControlName="email" [tabIndex]="1">
+        <label for="email">Email</label>
+      </div>
+    </div>
+    <div class="p-inputgroup">
+      <span class="p-inputgroup-addon"><i class="pi pi-key"></i></span>
+      <div class="p-float-label">
+        <input type="password" id="password" pInputText formControlName="password" [tabIndex]="2">
+        <label for="password">Hasło</label>
+      </div>
+    </div>
+    <div class="button-row">
+      <button pButton type="submit" label="Zaloguj"></button>
+    </div>
+  </form>
+</p-card>

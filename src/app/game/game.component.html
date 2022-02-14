@@ -1,0 +1,13 @@
+<div class="game-item">
+  <p-badge size="xlarge" [value]="badgeValue" class="mr-2" [styleClass]="'badge-'+index"></p-badge>
+  <div class="image-container">
+    <img [src]="game.thumbnail" [alt]="game.name">
+  </div>
+  <div class="game-details">
+    <h5 class="mb-2">{{ game.name }}</h5>
+    <small>{{ game.yearPublished }}</small>
+  </div>
+  <div class="game-actions">
+    <ng-content></ng-content>
+  </div>
+</div>

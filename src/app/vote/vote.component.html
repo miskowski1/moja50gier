@@ -1,33 +1,38 @@
 <div class="p-float-label">
-  <input inputId="email" type="email" pInputText>
+  <input inputId="email" type="email" [formControl]="emailControl" pInputText [tabindex]="1">
   <label for="email">Email</label>
 </div>
+<small *ngIf="emailControl.dirty" id="email-help" class="p-error block">
+  <ng-container *ngIf="emailControl.errors?.['required']">Email jest wymagany</ng-container>
+  <ng-container *ngIf="emailControl.errors?.['email']">Email jest niepoprawny</ng-container>
+  <ng-container *ngIf="emailControl.errors?.['emailUnique']">Email został już użyty do głosowania</ng-container>
+</small>
 
-<div class="p-float-label">
-  <p-autoComplete inputId="search" [formControl]="searchControl" [suggestions]="(searchTitles$ | async) || []"
-                  field="name" (onSelect)="addGame($event)">
-    <ng-template let-game pTemplate="item">
-      <span>{{ game.name }}</span>&nbsp;<small>({{ game.yearPublished }})</small>
-    </ng-template>
-  </p-autoComplete>
-  <label for="search">Wpisz tytuł gry...</label>
-</div>
-
-<p-orderList [value]="selectedGames" [dragdrop]="true">
-  <ng-template let-game let-i="index" pTemplate="item">
-    <div class="game-item">
-      <p-badge size="xlarge" [value]="i | points" class="mr-2" [styleClass]="'badge-'+i"></p-badge>
-      <div class="image-container">
-        <img [src]="game.thumbnail" [alt]="game.name">
-      </div>
-      <div class="game-details">
-        <h5 class="mb-2">{{ game.name }}</h5>
-        <small>{{ game.yearPublished }}</small>
-      </div>
-      <div class="game-actions">
-        <button pButton pRipple type="button" icon="pi pi-trash" class="p-button-rounded p-button-danger p-button-sm"
-                (click)="removeGame(i)"></button>
-      </div>
+<p-orderList [value]="selectedGames" [dragdrop]="true" controlsPosition="right">
+  <ng-template pTemplate="header">
+    <div class="header">
+      Twoja lista gier
+    </div>
+    <div class="search">
+      <p-autoComplete inputId="search" [formControl]="searchControl" [suggestions]="(searchTitles$ | async) || []"
+                      field="name" placeholder="Wyszukaj grę..." [tabindex]="2"
+                      (onSelect)="addGame($event)" (onBlur)="searchControl.setValue('')">
+        <ng-template let-game pTemplate="item">
+          <span>{{ game.name }}</span>&nbsp;<small *ngIf="!!game.yearPublished">({{ game.yearPublished }})</small>
+        </ng-template>
+      </p-autoComplete>
     </div>
   </ng-template>
+  <ng-template let-game let-i="index" pTemplate="item">
+    <app-game [index]="i" [game]="game" [badgeValue]="i | points">
+      <button pButton pRipple type="button" icon="pi pi-trash" class="p-button-rounded p-button-danger p-button-sm"
+              (click)="removeGame(i)"></button>
+    </app-game>
+  </ng-template>
 </p-orderList>
+
+<div class="button-row">
+  <button pButton type="button" label="Wyślij swój głos" (click)="submitVote()"></button>
+</div>
+
+<p-confirmDialog rejectButtonStyleClass="p-button-text"></p-confirmDialog>

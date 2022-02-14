@@ -3,57 +3,45 @@
   .p-float-label {
     margin-top: 2rem;
 
-    input, .p-autocomplete {
+    input {
       width: 100%;
     }
   }
 
   .p-orderlist {
+    display: block;
     margin-top: 2rem;
+
+    .p-orderlist-header {
+      background: none;
+      border: none;
+      padding: 0;
+
+      .header {
+        background: #f8f9fa;
+        border: 1px solid #dee2e6;
+        color: #495057;
+        padding: 1rem;
+        border-bottom: 0 none;
+        border-top-right-radius: 3px;
+        border-top-left-radius: 3px;
+      }
+
+      .search {
+        border: 1px solid #dee2e6;
+        border-bottom: 0 none;
+        padding: 1rem;
+
+        .p-autocomplete, input {
+          width: 100%;
+        }
+      }
+    }
   }
 
-  .game-item {
+  .button-row {
     display: flex;
-    align-items: center;
-    padding: .5rem;
-    width: 100%;
-
-    p-badge {
-      margin-right: 1rem;
-
-      .p-badge {
-        background: #0f2310;
-      }
-
-      .badge-0 {
-        background: #4caf50;
-      }
-
-      .badge-1, .badge-2 {
-        background: #3d8c40;
-      }
-
-      .badge-3 {
-        background: #2e6930;
-      }
-
-      .badge-4 {
-        background: #1e4620;
-      }
-    }
-
-    .image-container {
-      width: 75px;
-      margin-right: 1rem;
-
-      img {
-        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-        width: 100%;
-      }
-    }
-
-    .game-details {
-      flex: 1 1 0;
-    }
+    justify-content: center;
+    padding: 1rem;
   }
 }

@@ -26,8 +26,8 @@ export class BggService {
             const item = items[i];
             games.push({
               id: item.id,
-              name: item.getElementsByTagName('name')[0].getAttribute('value') || '',
-              yearPublished: item.getElementsByTagName('yearpublished')[0].getAttribute('value') || ''
+              name: item.getElementsByTagName('name')?.[0].getAttribute('value') || '',
+              yearPublished: item.getElementsByTagName('yearpublished')?.[0]?.getAttribute('value') || ''
             })
           }
         }
