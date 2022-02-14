@@ -9,7 +9,7 @@ export const environment = {
     storageBucket: 'moja50gier-7a6e5.appspot.com',
     locationId: 'europe-west',
     apiKey: 'AIzaSyCPfSPVVU4-nsJiNBvOZMGobc9sn_z98fc',
-    authDomain: 'moja50gier-7a6e5.firebaseapp.com',
+    authDomain: 'moja50gier.firebaseapp.com',
     messagingSenderId: '614931165360',
     measurementId: 'G-HCD788ZCCT',
   },
