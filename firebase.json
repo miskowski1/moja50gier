@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "moja50gier",
     "public": "dist/moja50gier",
     "ignore": [
       "firebase.json",
